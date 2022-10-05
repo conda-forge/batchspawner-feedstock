@@ -1,4 +1,4 @@
-{% set version = "1.1.0" %}
+{% set version = "1.2.0" %}
 
 package:
   name: batchspawner
@@ -6,7 +6,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/b/batchspawner/batchspawner-{{ version }}.tar.gz
-  sha256: 9bae72f7c1bd9bb11aa58ecc3bc9fae5475a10fdd92dc0c0d67fa7eb95c9dd3a
+  sha256: b1924bb4f3a3f527a1e312ecdaff3dbc5acfd91e6b13cf074a62cd74340a2e21
 
 build:
   noarch: python
