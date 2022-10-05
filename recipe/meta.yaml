@@ -12,24 +12,25 @@ build:
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv
   number: 0
+  entry_points:
+    - batchspawner-singleuser = batchspawner.singleuser:main
 
 requirements:
   host:
     - pip
-    - python >=3.3
+    - python >=3.5
   run:
     - __unix
     - async_generator >=1.8
     - jinja2
-    - jupyterhub-base >=0.5
-    - python >=3.3
+    - jupyterhub-base >=0.9
+    - python >=3.5
 
 test:
   imports:
     - batchspawner
   requires:
     - pip
-    - packaging  # TODO: remove after https://github.com/conda-forge/jupyterhub-feedstock/issues/59
   commands:
     - pip check
     # even this expects a running hub
