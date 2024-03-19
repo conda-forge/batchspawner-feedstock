@@ -18,13 +18,12 @@ build:
 requirements:
   host:
     - pip
-    - python >=3.5
+    - python >=3.6
   run:
     - __unix
-    - async_generator >=1.8
     - jinja2
-    - jupyterhub-base >=0.9
-    - python >=3.5
+    - jupyterhub-base >=1.5.1
+    - python >=3.6
 
 test:
   imports:
