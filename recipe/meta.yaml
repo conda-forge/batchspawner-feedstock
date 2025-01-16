@@ -5,35 +5,39 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/b/batchspawner/batchspawner-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/b/batchspawner/batchspawner-{{ version }}.tar.gz
   sha256: c0f422eb6a6288f7f711db8b780055b37c1a5c630283cdeb2ef9b5e94ba78caa
 
 build:
+  number: 1
   noarch: python
-  script: {{ PYTHON }} -m pip install . -vv
-  number: 0
+  script:
+    - {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation --disable-pip-version-check
   entry_points:
     - batchspawner-singleuser = batchspawner.singleuser:main
 
 requirements:
   host:
     - pip
-    - python >=3.6
+    - python {{ python_min }}
+    - setuptools
   run:
     - __unix
     - jinja2
     - jupyterhub-base >=1.5.1
-    - python >=3.6
+    - python >={{ python_min }}
 
 test:
   imports:
     - batchspawner
   requires:
     - pip
+    - python {{ python_min }}
   commands:
     - pip check
     # even this expects a running hub
     # - batchspawner-singleuser --version
+    - which batchspawner-singleuser || where batchspawner-singleuser 
 
 about:
   home: https://github.com/jupyterhub/batchspawner
