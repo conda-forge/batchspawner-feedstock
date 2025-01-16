@@ -145,4 +145,6 @@ Feedstock Maintainers
 =====================
 
 * [@bollwyvl](https://github.com/bollwyvl/)
+* [@consideratio](https://github.com/consideratio/)
+* [@minrk](https://github.com/minrk/)
 
